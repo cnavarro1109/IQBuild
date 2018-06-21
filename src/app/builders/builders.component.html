@@ -1,0 +1,55 @@
+<div class="basic-container">
+
+  <!-- <h3>Single selection</h3>
+  <p>
+    <mat-form-field>
+      <mat-select [formControl]="builderCtrl" placeholder="Bank" #singleSelect>
+        <ngx-mat-select-search [formControl]="bankFilterCtrl"></ngx-mat-select-search>
+        <mat-option *ngFor="let bank of filteredBanks | async" [value]="bank">
+          {{bank.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+  <p>
+    Selected Bank: {{builderCtrl.value?.name}}
+  </p> -->
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
+
+
+<!-- <div class="container">
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Select</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let builder of listBuilders | paginate: { itemsPerPage: 2, currentPage: p }">
+        <td>{{ builder.id }}</td>
+        <td>{{ builder.value }}</td>
+        <td><button class="btn btn-primary">Select</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls class="Page navigation" (pageChange)="p = $event"></pagination-controls>
+</div> -->

@@ -1,0 +1,29 @@
+import { Injectable, OnInit, OnDestroy } from '@angular/core';
+import { Http } from '@angular/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BuildersService implements OnInit {
+  private _result: any;
+
+  constructor(private http: Http) {
+    this._result = http.get('assets/data/builders.json')
+    .subscribe(response => {
+      console.log('Coming from service: ', response.json());
+      this._result = response.json();
+    });
+  }
+
+
+  getResult(): any {
+    return this.http.get('assets/data/builders.json')
+    .subscribe(response => {
+      console.log('Promise Completed!! ');
+      response.json();
+    });
+  }
+
+
+}
+

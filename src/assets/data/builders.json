@@ -1,0 +1,20 @@
+[
+  {
+    "year": 2018,
+    "vin": 100,
+    "brand": "Honda",
+    "color": "Red"
+  },
+  {
+    "year": 2016,
+    "vin": 102,
+    "brand": "Honda",
+    "color": "Black"
+  },
+  {
+    "year": 2015,
+    "vin": 103,
+    "brand": "Honda",
+    "color": "Red"
+  }
+]
