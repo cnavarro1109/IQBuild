@@ -25,10 +25,13 @@ export class PrimeBuilderComponent implements OnInit {
 
   yearTimeout: any;
 
+  loading: boolean;
+
 
   constructor(private service: BuildersService) { }
 
   ngOnInit() {
+    this.loading = true;
 
      // query
      this.service.loadAll(); // Load all the data
@@ -36,9 +39,14 @@ export class PrimeBuilderComponent implements OnInit {
      /* Subscribe to the service, this is
      required in order to properly wait for a response
      */
-     this.service.todos.subscribe(response => {
+
+    // Setting timeout to test loader icon
+    setTimeout(() => {
+      this.service.todos.subscribe(response => {
        this.cars = response;
+       this.loading = false;
      });
+    }, 1000);
 
      // Static Data
      this.brands = [
@@ -82,17 +90,6 @@ export class PrimeBuilderComponent implements OnInit {
       ];
 
   }
-
-//   onYearChange(event, dt) {
-//     console.log(' Year changed.. ', dt);
-//     if (this.yearTimeout) {
-//         clearTimeout(this.yearTimeout);
-//     }
-
-//     this.yearTimeout = setTimeout(() => {
-//         this.cars = dt.filter(event.value, 'year', 'gt');
-//     }, 250);
-// }
 
 
 
