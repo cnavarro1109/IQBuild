@@ -31,7 +31,7 @@ import {MultiSelectModule} from 'primeng/multiselect';
 // PrimeNG Components
 import {AccordionModule} from 'primeng/accordion';  // accordion and accordion tab
 import {MenuItem} from 'primeng/api'; // api
-
+import {ButtonModule} from 'primeng/button';
 
 import {TableModule} from 'primeng/table';
 
@@ -63,6 +63,7 @@ const appRoutes: Routes = [
     SliderModule, // PrimeNG
     DropdownModule, // PrimeNG
     MultiSelectModule, // PrimeNG
+    ButtonModule, // PrimeNG
     RouterModule.forRoot(
       appRoutes, { enableTracing: true } // <!-- Debugging
     )

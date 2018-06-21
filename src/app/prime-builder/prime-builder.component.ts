@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BuildersService } from '../builders.service';
 
 // PrimeNG
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
-
+import {ButtonModule} from 'primeng/button';
 @Component({
   selector: 'app-builders',
   templateUrl: './prime-builder.component.html',
@@ -26,6 +26,9 @@ export class PrimeBuilderComponent implements OnInit {
   yearTimeout: any;
 
   loading: boolean;
+
+  @Input()
+  selectedRowId: number;
 
 
   constructor(private service: BuildersService) { }
@@ -86,9 +89,15 @@ export class PrimeBuilderComponent implements OnInit {
           { field: 'vin', header: 'Vin' },
           { field: 'year', header: 'Year' },
           { field: 'brand', header: 'Brand' },
-          { field: 'color', header: 'Color' }
+          { field: 'color', header: 'Color' },
+          { field: 'id', header: 'Edit' }
       ];
 
+  }
+
+
+  handleClick(value: any) {
+    console.log(value);
   }
 
 

@@ -23,7 +23,13 @@
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr [pSelectableRow]="rowData">
             <td *ngFor="let col of columns">
-                {{rowData[col.field]}}
+                <div *ngIf="col.field === 'id'; else elseBlock">
+                    <p-button label="Select" (onClick)="handleClick(rowData[col.field])"></p-button>
+                </div>
+                <ng-template #elseBlock>
+                    {{rowData[col.field]}}
+                </ng-template>
+
             </td>
         </tr>
     </ng-template>
