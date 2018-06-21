@@ -5,6 +5,7 @@ import { BuildersService } from '../builders.service';
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {ButtonModule} from 'primeng/button';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-builders',
   templateUrl: './prime-builder.component.html',
@@ -31,7 +32,7 @@ export class PrimeBuilderComponent implements OnInit {
   selectedRowId: number;
 
 
-  constructor(private service: BuildersService) { }
+  constructor(private service: BuildersService, private router: Router) { }
 
   ngOnInit() {
     this.loading = true;
@@ -97,6 +98,7 @@ export class PrimeBuilderComponent implements OnInit {
 
 
   handleClick(value: any) {
+    this.router.navigateByUrl('/builderDetails/' + value);
     console.log(value);
   }
 

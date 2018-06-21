@@ -34,17 +34,24 @@ import {MenuItem} from 'primeng/api'; // api
 import {ButtonModule} from 'primeng/button';
 
 import {TableModule} from 'primeng/table';
+import { BuilderDetailsComponent } from './builder-details/builder-details.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
   { path: 'builders', component: BuildersComponent },
-  { path: 'primeBuilder', component: PrimeBuilderComponent }
+  { path: 'primeBuilder', component: PrimeBuilderComponent },
+  { path: 'builderDetails', component: BuilderDetailsComponent },
+  { path: 'builderDetails/:id', component: BuilderDetailsComponent }
+
+
 ];
 @NgModule({
   declarations: [
     AppComponent,
     BuildersComponent,
-    PrimeBuilderComponent
+    PrimeBuilderComponent,
+    BuilderDetailsComponent
   ],
   imports: [
     BrowserModule,
