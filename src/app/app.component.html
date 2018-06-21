@@ -1,2 +1,7 @@
+<div>Header</div>
 
-<router-outlet></router-outlet>
+<div class="page" [@routerAnimations]="prepareRouteTransition(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
+
+<div>Footer</div>

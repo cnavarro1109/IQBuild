@@ -11,6 +11,7 @@ import { NUMBER_FORMAT_REGEXP } from '@angular/common/src/i18n/format_number';
 export class BuilderDetailsComponent implements OnInit {
   private subscriptions = new Subscription();
   private id: number;
+  recordId: number;
 
   constructor(
     private router: Router,
@@ -23,8 +24,9 @@ export class BuilderDetailsComponent implements OnInit {
     this.subscriptions.add(
       this.activatedRoute.params.subscribe(
         async(params) => {
-          const paramId = Number(params['id']) || 0;
-          console.log('Parameter ID: ', paramId);
+          // const paramId = Number(params['id']) || 0;
+          this.recordId = Number(params['id']) || 0;
+          console.log('Parameter ID: ', this.recordId);
         }
       )
     );

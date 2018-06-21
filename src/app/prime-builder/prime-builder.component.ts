@@ -6,6 +6,10 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {ButtonModule} from 'primeng/button';
 import { Router } from '@angular/router';
+
+// Child Components
+import { BuilderDetailsComponent } from '../builder-details/builder-details.component';
+
 @Component({
   selector: 'app-builders',
   templateUrl: './prime-builder.component.html',

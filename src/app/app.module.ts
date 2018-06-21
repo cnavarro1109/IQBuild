@@ -36,13 +36,37 @@ import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import { BuilderDetailsComponent } from './builder-details/builder-details.component';
 
-
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
+  // { path: '', component: AppComponent }, // Loads the module twice. Default so no need for this path
   { path: 'builders', component: BuildersComponent },
-  { path: 'primeBuilder', component: PrimeBuilderComponent },
-  { path: 'builderDetails', component: BuilderDetailsComponent },
-  { path: 'builderDetails/:id', component: BuilderDetailsComponent }
+  {
+    path: 'primeBuilder',
+    component: PrimeBuilderComponent,
+    data: {
+      animation: {
+        value: 'primeBuilder',
+      }
+    }
+  },
+  {
+    path: 'builderDetails',
+    component: BuilderDetailsComponent,
+    data: {
+      animation: {
+        value: 'builderDetails',
+      }
+    }
+  },
+  {
+    path: 'builderDetails/:id',
+    component: BuilderDetailsComponent,
+    data: {
+      animation: {
+        value: 'builderDetails',
+      }
+    }
+  }
+  // { path: 'lazy', loadChildren: './lazy.module#LazyModule' }
 
 
 ];
@@ -71,10 +95,12 @@ const appRoutes: Routes = [
     DropdownModule, // PrimeNG
     MultiSelectModule, // PrimeNG
     ButtonModule, // PrimeNG
-    RouterModule.forRoot(
-      appRoutes, { enableTracing: true } // <!-- Debugging
-    )
+    // RouterModule.forRoot(
+    //   appRoutes, { enableTracing: true } // <!-- Debugging
+    // )
+    RouterModule.forRoot(appRoutes)
   ],
+  exports: [RouterModule],
   providers: [BuildersService],
   bootstrap: [AppComponent]
 })
